@@ -1,25 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+import {authenticate, loadClient, execute} from './youtube.js'
+import React, { Component } from 'react';
+// I probably should be using a class component?
+export default class App extends Component {
+  render() {
+    // authenticate()
+    // loadClient()
+    // execute()
+    this.getData = () => {
+      const data = execute();
+      console.log("DATA", data);
+    }
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+      <div className="App">
+        <header className="App-header">
+          
+        </header>
+          <button onClick={authenticate}>Authorize YouTube</button>
+          <button onClick={loadClient}>Load Gapi Client</button>
+          <button onClick= {this.getData}>Execute API Request</button>
+      </div>
+    );
+  }
 }
 
-export default App;
+/* 
+I can also just do this above by writing...
+  "export default function App() {..."
+*/
+// export default App;
+
